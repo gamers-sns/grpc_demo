@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package catimages;
+
+service CatImageService {
+    rpc GetCatImage (CatImageRequest) returns (CatImageResponse) {}
+}
+
+message CatImageRequest {}
+
+
+message CatImageResponse {
+    string url = 1;
+}
