@@ -5,22 +5,27 @@ import styles from './page.module.css'
 import { createPromiseClient } from '@connectrpc/connect'
 import { Greeter } from '../services/greeting_connect'
 import { CatImageService } from '@/services/catimages_connect'
-import { createGrpcWebTransport } from '@connectrpc/connect-web'
+import { createConnectTransport, createGrpcWebTransport } from '@connectrpc/connect-web'
 
 
+// GrpcWeb を使う場合
 const transport = createGrpcWebTransport({
   baseUrl: 'http://localhost:50051',
-  
 });
 
-const greeterClient = createPromiseClient(Greeter, transport);
+// Connect を使う場合
+const connectTransport = createConnectTransport({
+  baseUrl: 'http://localhost:50051',
+})
 
-const catImageClient = createPromiseClient(CatImageService, transport);
+const greeterClient = createPromiseClient(Greeter, connectTransport);
+
+const catImageClient = createPromiseClient(CatImageService, connectTransport);
 
 export default function Home() {
 
   const [name, setName] = useState<string>('');
-  const [greetingResponse, setGreetingResponse] = useState<string>(''); // 追加された状態
+  const [greetingResponse, setGreetingResponse] = useState<string>('');
 
 
   const [catImageUrl, setCatImageUrl] = useState<string>('');
