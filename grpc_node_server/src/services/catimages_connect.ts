@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { CatImageRequest, CatImageResponse } from "./catimages_pb.js";
+import { CatImageRequest, CatImageResponse } from "./catimages_pb.ts";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**

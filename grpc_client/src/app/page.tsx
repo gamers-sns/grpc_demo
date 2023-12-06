@@ -6,6 +6,7 @@ import { createPromiseClient } from '@connectrpc/connect'
 import { Greeter } from '../services/greeting_connect'
 import { CatImageService } from '@/services/catimages_connect'
 import { createConnectTransport, createGrpcWebTransport } from '@connectrpc/connect-web'
+import Link from 'next/link'
 
 
 // GrpcWeb を使う場合
@@ -72,6 +73,10 @@ export default function Home() {
 
         {/* Cat image display */}
         {catImageUrl && <Image src={catImageUrl} alt="Cat" width={500} height={500} />}
+
+        <Link href="/chat">
+          Go to Chat Page
+        </Link>
       </main>
     </div>
   )

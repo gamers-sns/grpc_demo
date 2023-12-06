@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { GreetingMessage, Person } from "./greeting_pb.js";
+import { GreetingMessage, Person } from "./greeting_pb.ts";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**
